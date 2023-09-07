@@ -3,7 +3,9 @@ body {
     margin: 0;
     padding: 0;
     background-color: #000000; 
-    background-image: url();
+    background-image: url(maxresdefault.jpg);
+/*     background: no-repeat; */
+   
 }
 
 .container {

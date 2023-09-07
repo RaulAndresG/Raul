@@ -16,7 +16,6 @@ async function fetchFilmInfo() {
 
 
         const charactersList = document.getElementById('characters-list');
-
         const characters = data.characters;
         for (const characterURL of characters) {
             const characterResponse = await fetch(characterURL);
