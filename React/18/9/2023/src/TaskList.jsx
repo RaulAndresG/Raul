@@ -18,17 +18,17 @@ const addFormulario = () => {
 };
 
 // Función para editar un formulario o tarea existente en el estado formulario
-const editFormulario = (index) => {
+const editFormulario = (i) => {
   // Solicitar al usuario que ingrese el nuevo contenido para el formulario
-  const actualizarform = prompt('Editar form:', formulario[index]);
+  const actualizarform = prompt('Editar form:', formulario[i]);
 
   // Verificar si el usuario ingresó algo (y no presionó "Cancelar")
   if (actualizarform !== null) {
     // Crear una copia del arreglo formulario
     const actualizarforms = [...formulario];
 
-    // Reemplazar el elemento en la posición 'index' con el nuevo contenido
-    actualizarforms[index] = actualizarform;
+    // Reemplazar el elemento en la posición 'i' con el nuevo contenido
+    actualizarforms[i] = actualizarform;
 
     // Actualizar el estado formulario con la nueva versión del arreglo
     setTasks(actualizarforms);
@@ -37,18 +37,19 @@ const editFormulario = (index) => {
 
 
 // Función para eliminar un formulario o tarea existente en el estado formulario
-const deleteFormulario = (index) => {
-  // Crear una copia del arreglo formulario
-  const actualizarform = [...formulario];
 
-  // Utilizar el método splice para eliminar el elemento en la posición 'index'
-  actualizarform.splice(index, 1);
 
+
+const deleteFormulario = (i) => {const actualizarform = [...formulario];actualizarform.splice(i, 1);setTasks(actualizarform);};
+
+
+
+
+
+
+  // Utilizar el método splice para eliminar el elemento en la posición 'i'
   // Actualizar el estado formulario con la nueva versión del arreglo (sin el elemento eliminado)
-  setTasks(actualizarform);
-};
-
-
+ // Crear una copia del arreglo formulario
 return (
   <div className="App">
     {/* Input para agregar nuevo formulario */}
@@ -65,16 +66,16 @@ return (
       </button>
     </div>
     {/* Mapeo y visualización de formularios existentes */}
-    {formulario.map((form, index) => (
-      <div key={index} className="card">
+    {formulario.map((form, i) => (
+      <div key={i} className="card">
         {form}
         <div className="button-container">
           {/* Botón para editar un formulario */}
-          <button className="edit" onClick={() => editFormulario(index)}>
+          <button className="edit" onClick={() => editFormulario(i)}>
             Edit
           </button>
           {/* Botón para eliminar un formulario */}
-          <button className="delete" onClick={() => deleteFormulario(index)}>
+          <button className="delete" onClick={() => deleteFormulario(i)}>
             Delete
           </button>
         </div>
